@@ -69,7 +69,7 @@ Additionally, you need the `sda_functions` module which should include:
 | Parameter | Type | Description | Default/Options |
 |-----------|------|-------------|-----------------|
 | `network_type` | str | Network topology | `'random'`, `'preferential'`, `'sda'` |
-| `homophily` | float | Homophily strength (see details below) | `-4` to `1` |
+| `homophily` | float | Homophily strength (see details below) | `-4` to `2` |
 | `avg_degree` | int | Average connections per node | Positive integer |
 | `p_rewire` | float | Probability of rewiring edges per step | `0.0` to `1.0` |
 | `wb_in_dist` | bool | Include well-being in distance calculations | `True`/`False` |
@@ -79,7 +79,7 @@ Additionally, you need the `sda_functions` module which should include:
 - **`h = -2`**: Barabási-Albert (preferential attachment), no capital-degree correlation
 - **`h = -3`**: Barabási-Albert with poor agents having low degree
 - **`h = -4`**: Barabási-Albert with poor agents having high degree
-- **`0 < h < 1`**: True SDA network with homophily (similar agents connect)
+- **`0.2 < h < 2`**: True SDA network with homophily (similar agents connect)
   - **Note**: Values `0 < h < 0.2` may cause optimization issues in SDA
   - Use `h = -1` for fully random networks instead of low positive values
 
