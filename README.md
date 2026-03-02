@@ -20,7 +20,7 @@ The `WellbeingSim` class implements a sophisticated simulation of well-being dyn
   - `h=-2`: Normal BA network (unrelated to capital)
   - `h=-3`: Low capital agents have high degree
   - `h=-4`: High capital agents have high degree
-- **Spatially Distributed Attachment (SDA, `0<h<1`)**: Homophily-based networks where similar agents are more likely to connect
+- **Spatially Distributed Attachment (SDA, `0<h<2`)**: Homophily-based networks where similar agents are more likely to connect
   - Note: Values `0<h<0.2` may cause optimization issues; use `h=-1` for fully random networks instead
 
 ### Social Comparison Mechanisms
@@ -34,25 +34,6 @@ The `WellbeingSim` class implements a sophisticated simulation of well-being dyn
 - **Fixed Interventions**: Regular deterministic shocks to random subsets of agents
 - **Random Shocks**: Continuous stochastic fluctuations (Normal, GEV, or Student-t distributions)
 - **Combined**: Both types of shocks simultaneously (e.g., `'fixed+random'`)
-
-## Installation
-
-### Requirements
-
-```bash
-pip install numpy scipy networkx
-```
-
-Additionally, you need the `sda_functions` module which should include:
-- `SDA` class for spatially distributed attachment networks
-- `rewire_edges` function for network rewiring
-
-### Dependencies
-
-- `numpy>=1.20.0`: Numerical computations and array operations
-- `scipy>=1.7.0`: Statistical distributions and sparse matrices
-- `networkx>=2.6.0`: Network generation and analysis
-
 
 ## Parameter Reference
 
@@ -123,7 +104,7 @@ Additionally, you need the `sda_functions` module which should include:
 
 | Parameter | Type | Description | Options |
 |-----------|------|-------------|---------|
-| `event_type` | str | Type of shocks to apply | `'fixed'`, `'random'`, `'fixed+random'`, `'random_gev'`, `'random_student_t'` |
+| `event_type` | str | Type of shocks to apply | `'fixed'`, `'random'`, `'fixed+random'` |
 | `p` | float | Probability of receiving fixed intervention | `0.0` to `1.0` |
 | `int_freq` | int | Fixed intervention frequency (time steps) | Positive integer (e.g., `50` = every 50 steps) |
 | `int_size` | float | Absolute size of intervention | Any float (negative for adverse shocks) |
